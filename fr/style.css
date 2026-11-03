@@ -149,14 +149,28 @@ textarea { height: 160px; padding: 16px; resize: vertical; }
 .confirmation.visible { display: block; }
 form .btn { justify-self: start; }
 
-/* Pied de page */
+/* Pied de page : grande carte rouge sur fond noir */
 .pied { padding: 64px var(--pad); background: var(--noir); color: var(--blanc); }
-.pied .colonnes { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
-.pied .marque { font-weight: 600; font-size: 24px; letter-spacing: 0.4em; }
-.pied p.pos { margin-top: 16px; max-width: 26em; color: rgba(250,250,250,.85); }
-.pied ul { list-style: none; display: grid; gap: 8px; }
-.pied ul a:hover { color: var(--rouge); }
-.pied .copy { margin-top: 64px; text-align: center; font-size: 14px; color: rgba(250,250,250,.7); }
+.carte { background: var(--rouge); color: var(--blanc); border-radius: 32px; padding: 64px; box-shadow: 16px 16px 0 var(--blanc); }
+.carte-haut { display: flex; justify-content: space-between; align-items: flex-end; gap: 64px; flex-wrap: wrap; }
+.carte-gauche { display: grid; gap: 64px; }
+.pied .marque { font-weight: 600; font-size: 28px; letter-spacing: 0.4em; }
+.liens { display: flex; gap: 64px; flex-wrap: wrap; }
+.liens ul { list-style: none; display: grid; gap: 16px; }
+.liens a { font-weight: 600; font-size: 16px; padding: 4px 12px; margin-left: -12px; border-radius: 999px; transition: background .2s; }
+.liens a:hover { background: rgba(250,250,250,.2); }
+.carte-appel { display: grid; gap: 16px; max-width: 40rem; }
+.carte-appel .petit { font-size: 14px; font-weight: 500; }
+.carte-appel .grand { font-size: clamp(36px, 4.2vw, 64px); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; transition: opacity .2s; }
+.carte-appel:hover .grand { opacity: .85; }
+.pointille { height: 0; margin: 64px 0 32px; border-top: 2px dotted rgba(250,250,250,.55); }
+.carte-bas { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.carte-bas p { font-size: 14px; max-width: 34em; }
+.haut { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background: var(--blanc); color: var(--rouge); transition: background .2s; }
+.haut:hover { background: rgba(250,250,250,.85); }
+.haut:focus-visible { outline: 2px solid var(--blanc); outline-offset: 4px; }
+.pied .copy { margin-top: 48px; text-align: center; font-size: 14px; color: rgba(250,250,250,.7); }
+@media (max-width: 1000px) { .carte { padding: 40px 24px; box-shadow: 8px 8px 0 var(--blanc); border-radius: 24px; } .carte-gauche { gap: 40px; } .liens { gap: 32px; } .pointille { margin: 40px 0 24px; } }
 
 /* Mouvement : arrivée douce, repli sans animation */
 @media (prefers-reduced-motion: no-preference) {
@@ -191,10 +205,10 @@ form .btn { justify-self: start; }
 /* Accueil : hero plein écran, menu en verre par-dessus l'image */
 .accueil .nav { position: fixed; left: 0; right: 0; background: rgba(26,26,26,.28); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .hero-plein { position: relative; min-height: 100dvh; display: flex; align-items: flex-end; padding: 128px var(--pad) 64px; color: var(--blanc); background: var(--noir); overflow: hidden; }
-.hero-plein > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.hero-plein > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .hero-plein::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: linear-gradient(to top, rgba(26,26,26,.92), rgba(26,26,26,0)); }
 .hero-texte { position: relative; z-index: 1; max-width: 46rem; }
 .hero-texte h1 { font-size: clamp(40px, 5.6vw, 88px); }
 .hero-texte p { margin-top: 24px; font-size: 18px; max-width: 34em; }
 .hero-texte .actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
-@media (max-width: 640px) { .hero-plein { padding-top: 160px; } }
+@media (max-width: 640px) { .hero-plein { padding-top: 160px; } .hero-plein > img { object-position: 82% 50%; } }

@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="nav">
+<header class="nav" id="haut">
   <a class="marque" href="index.html">TESLA</a>
   <nav aria-label="Navigation principale"><ul>
     <li><a href="index.html">Accueil</a></li>
@@ -82,16 +82,40 @@
 </section>
 </main>
 <footer class="pied">
-  <div class="colonnes">
-    <div>
-      <a class="marque" href="index.html">TESLA</a>
-      <p class="pos">Le Roadster de deuxième génération, présenté le 15 octobre 2026 : une supercar électrique qui quitte le sol.</p>
+  <div class="carte">
+    <div class="carte-haut">
+      <div class="carte-gauche">
+        <a class="marque" href="index.html">TESLA</a>
+        <nav class="liens" aria-label="Pied de page">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="roadster.html">Fiche produit</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <ul>
+            <li><a href="roadster.html">Performance</a></li>
+            <li><a href="roadster.html">Thrust</a></li>
+            <li><a href="roadster.html">Rocket</a></li>
+          </ul>
+          <ul>
+            <li><a href="contact.html">Réserver</a></li>
+            <li><a href="roadster.html">Points à savoir</a></li>
+            <li><a href="roadster.html">Sources</a></li>
+          </ul>
+        </nav>
+      </div>
+      <a class="carte-appel" href="contact.html">
+        <span class="petit">Une question ou une réservation ?</span>
+        <span class="grand">Réservons votre Roadster</span>
+      </a>
     </div>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="roadster.html">Fiche produit</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="pointille" aria-hidden="true"></div>
+    <div class="carte-bas">
+      <p>Réservation : 50&nbsp;000&nbsp;$ dont 5&nbsp;000&nbsp;$ à verser immédiatement, solde sous dix jours.</p>
+      <a class="haut" href="#haut" aria-label="Retour en haut de la page">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
   </div>
   <p class="copy">© 2026 Tesla, projet pédagogique de l'IUT de Roubaix</p>
 </footer>
