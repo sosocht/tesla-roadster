@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Tesla Roadster</title>
+<meta name="description" content="Réserver le Tesla Roadster ou poser une question sur les versions et la production.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231A1A1A'/%3E%3Cpath d='M12 20h40v8H36v22h-8V28H12z' fill='%23E31937'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="marque" href="index.html">TESLA</a>
+  <nav aria-label="Navigation principale"><ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="roadster.html">Roadster</a></li>
+    <li><a href="contact.html" aria-current="page">Contact</a></li>
+  </ul></nav>
+  <a class="btn btn-primaire" href="contact.html">Réserver le Roadster</a>
+</header>
+<main>
+<section class="contact sur-clair">
+  <div class="texte">
+    <h1>Réserver ou poser une question</h1>
+    <p>Dites-nous quelle version vous intéresse, nous revenons vers vous avec la suite de la réservation.</p>
+    <ol>
+      <li>Vous envoyez votre demande avec la version choisie.</li>
+      <li>Vous versez 5&nbsp;000&nbsp;$ pour bloquer votre place.</li>
+      <li>Vous réglez le solde de 45&nbsp;000&nbsp;$ sous dix jours.</li>
+    </ol>
+    <p class="notes">Site réalisé pour la mission 1 de la ressource RCN, IUT de Roubaix. Le formulaire est une maquette : aucun message n'est envoyé.</p>
+  </div>
+  <form id="form" novalidate>
+    <label>Nom et prénom
+      <input type="text" name="nom" required autocomplete="name">
+      <span class="erreur">Indiquez votre nom et prénom.</span>
+    </label>
+    <label>Adresse e-mail
+      <input type="email" name="email" required autocomplete="email" placeholder="prenom.nom@exemple.fr">
+      <span class="erreur">Indiquez une adresse e-mail valide, par exemple prenom.nom@exemple.fr.</span>
+    </label>
+    <label>Version souhaitée
+      <select name="version">
+        <option>Performance</option>
+        <option>Thrust</option>
+        <option>Rocket</option>
+        <option>Je ne sais pas encore</option>
+      </select>
+    </label>
+    <label>Message
+      <textarea name="message"></textarea>
+    </label>
+    <button class="btn btn-primaire" type="submit">Envoyer ma demande</button>
+    <p class="confirmation" id="ok" role="status">Merci, votre demande est prise en compte. Rappel : ce formulaire est une maquette, rien n'a été envoyé.</p>
+  </form>
+</section>
+</main>
+<footer class="pied">
+  <div class="colonnes">
+    <div>
+      <a class="marque" href="index.html">TESLA</a>
+      <p class="pos">Le Roadster de deuxième génération, présenté le 15 octobre 2026 : une supercar électrique qui quitte le sol.</p>
+    </div>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="roadster.html">Fiche produit</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <p class="copy">© 2026 Tesla, projet pédagogique de l'IUT de Roubaix</p>
+</footer>
+<script>
+const f = document.getElementById('form'), ok = document.getElementById('ok');
+f.addEventListener('submit', e => {
+  e.preventDefault();
+  let bon = true;
+  [f.nom, f.email].forEach(c => {
+    const valide = c.type === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c.value) : c.value.trim().length > 1;
+    c.classList.toggle('invalide', !valide);
+    if (!valide) bon = false;
+  });
+  ok.classList.toggle('visible', bon);
+});
+</script>
+</body>
+</html>
